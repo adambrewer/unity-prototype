@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class playermovement : MonoBehaviour
 {
+        public float speedLimit = 100f;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -29,5 +30,6 @@ public class playermovement : MonoBehaviour
 	{
 		GetComponent<Rigidbody>().AddForce(transform.forward * 1000 * Time.deltaTime);
 	}
+GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, speedLimit);
     }
 }
